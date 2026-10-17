@@ -1,0 +1,25 @@
+# outputs / caches / databases
+out/
+cache/
+*.sqlite
+*.db
+*.log
+
+# python
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+
+# env / secrets
+.env
+*.env.local
+
+# editors / os / test noise
+.pytest_cache/
+.DS_Store
+.idea/
+.vscode/
