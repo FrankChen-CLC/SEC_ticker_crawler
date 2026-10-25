@@ -1,7 +1,7 @@
 # secdata
 
 Fetch U.S. stock data from [SEC EDGAR](https://www.sec.gov/edgar) — one CLI,
-ten pipelines, plain files. No database server, no API keys: give it a
+eleven pipelines, plain files. No database server, no API keys: give it a
 ticker, get filings, XBRL facts, insider trades, holdings, proxy-statement
 intelligence, new S-1s, and enforcement releases into JSONL you can grep,
 `pandas.read_json`, or load anywhere.
@@ -26,6 +26,7 @@ field-level bug workarounds that encode real SEC quirks were preserved.
 | `secdata proxy` | DEF 14A extraction → executive intelligence: comp tables (incl. hidden-layer SCT recovery), shareholder promises, capital actions, insider cluster events | `proxy/executives.jsonl`, `proxy/comp.jsonl`, `proxy/promises.jsonl`, `proxy/capital.jsonl`, `proxy/insiders.jsonl` |
 | `secdata preipo` | S-1 / F-1 registration monitor: discover, track amendments, confirm IPOs | `preipo/all.jsonl`, `preipo/new.jsonl`, `preipo/docs/…` |
 | `secdata enforcement` | SEC enforcement / litigation releases: listing sweep + full text | `enforcement/releases.jsonl`, `enforcement/docs/LR-####.txt` |
+| `secdata delisted` | Historical CIK/ticker windows and delisting candidate universe from EDGAR indexes, submissions, and archived symbol directories | `delisted_universe/out/master_universe.csv`, `delisted_universe/out/delist_companies.csv`, `delisted_universe/out/tickers_all_merged.csv` |
 
 Every pipeline is also an importable module (`secdata.filings`,
 `secdata.xbrl`, …) sharing one throttled, disk-cached HTTP client
@@ -106,7 +107,16 @@ secdata preipo --days 3
 
 # Enforcement releases with full texts
 secdata enforcement --details
+
+# Historical ticker and delisting universe (large, resumable workflow)
+secdata delisted list
+secdata delisted status
+secdata delisted run
+secdata delisted check
 ```
+
+The delisted workflow needs SEC bulk archives and substantial disk space.
+See [its setup and data caveats](docs/DELISTED_UNIVERSE.md) before a full run.
 
 Re-runs are cheap: responses land in the disk cache, done-headers live in
 `out/<pipeline>/checkpoint/`, and every pipeline resumes from where it

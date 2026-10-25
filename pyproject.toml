@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "secdata"
-version = "0.1.0"
-description = "Fetch U.S. stock ticker data from SEC EDGAR: filings archive, XBRL facts, 10-K/10-Q, pre-XBRL history, 13F/N-PORT, Form 4, 8-K, DEF 14A, S-1 monitor, enforcement releases."
+version = "0.2.0"
+description = "Fetch U.S. stock data from SEC EDGAR, including filings, financials, insider trades, enforcement, and a historical delisting universe."
 readme = "README.md"
 requires-python = ">=3.9"
 license = { file = "LICENSE" }

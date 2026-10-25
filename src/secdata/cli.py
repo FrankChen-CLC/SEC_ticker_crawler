@@ -15,7 +15,7 @@ from . import __version__
 
 MODULES = [
     "filings", "reports", "xbrl", "prexbrl", "holdings",
-    "insider", "events", "proxy", "preipo", "enforcement",
+    "insider", "events", "proxy", "preipo", "enforcement", "delisted",
 ]
 
 

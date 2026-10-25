@@ -1,5 +1,7 @@
 # outputs / caches / databases
 out/
+delisted_universe/out/
+delisted_universe/nasdaqdir/
 cache/
 *.sqlite
 *.db

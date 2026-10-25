@@ -1,6 +1,6 @@
 """secdata — fetch U.S. stock data from SEC EDGAR, one ticker at a time.
 
-Ten pipelines, each importable as a module and callable as a subcommand:
+Eleven pipelines, each callable as a subcommand:
 
     secdata filings    bulk filing index + documents, filtered by form      (1)
     secdata reports    10-K / 10-Q / 20-F archive + incremental refresh     (2)
@@ -12,5 +12,6 @@ Ten pipelines, each importable as a module and callable as a subcommand:
     secdata proxy      DEF 14A extraction + executive intelligence          (8)
     secdata preipo     S-1 / registration statement monitor                 (9)
     secdata enforcement SEC enforcement releases scraper                   (10)
+    secdata delisted  historical ticker and delisting universe             (11)
 """
-__version__ = "0.1.0"
+__version__ = "0.2.0"
